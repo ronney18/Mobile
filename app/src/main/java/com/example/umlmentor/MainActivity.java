@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements OnClickListener{
+public class MainActivity extends AppCompatActivity {
     Button btnLogin;
     EditText etUserName, etPassword;
     Button btnSignUp;
@@ -25,24 +25,27 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnSignUp = (Button) findViewById(R.id.btn_sign_up);
 
-        btnLogin.setOnClickListener(this);
-        btnSignUp.setOnClickListener(this);
+        //btnLogin.setOnClickListener(this);
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.btnLogin:
+                        break;
+
+                    case R.id.btn_sign_up:
+                        openActivity2();
+                        break;
+                }
+
+            }
+        });
 
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnLogin:
-                break;
-
-            case R.id.btn_sign_up:
-                Intent gotoSecond = new Intent();
-                gotoSecond.setClass(this, Register.class);
-                startActivity(gotoSecond);
-                break;
-
-        }
-
+    public void openActivity2() {
+        Intent gotoSecond = new Intent(this, Register.class);
+        startActivity(gotoSecond);
     }
 }
