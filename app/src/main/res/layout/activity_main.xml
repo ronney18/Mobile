@@ -6,100 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/etFirstName"
-        android:layout_width="285dp"
-        android:layout_height="38dp"
-        android:autofillHints="First Name"
-        android:ems="10"
-        android:hint="First Name"
-        android:inputType="textPersonName"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="203dp"
+        android:layout_height="148dp"
+        android:contentDescription="@string/umass_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.105"
-        tools:targetApi="o" />
-
-    <EditText
-        android:id="@+id/etLastName"
-        android:layout_width="285dp"
-        android:layout_height="38dp"
-        android:ems="10"
-        android:hint="Last Name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.203" />
-
+        app:layout_constraintVertical_bias="0.106"
+        app:srcCompat="@drawable/logo" />
 
     <EditText
         android:id="@+id/etUserName"
         android:layout_width="285dp"
         android:layout_height="38dp"
+        android:autofillHints="@string/username"
         android:ems="10"
-        android:hint="User Name"
+        android:hint="@string/username"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.391" />
+        app:layout_constraintVertical_bias="0.378"
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/etPassword"
-        android:layout_width="285dp"
-        android:layout_height="38dp"
+        android:layout_width="287dp"
+        android:layout_height="42dp"
+        android:autofillHints="@string/pwd"
         android:ems="10"
-        android:hint="Create Password"
+        android:hint="@string/pwd"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.617" />
-
-    <EditText
-        android:id="@+id/etMajor"
-        android:layout_width="285dp"
-        android:layout_height="38dp"
-        android:hint="Enter Major"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.298" />
-
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="282dp"
-        android:layout_height="53dp"
-        android:ems="10"
-        android:hint="Uml Email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:targetApi="o" />
 
     <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="209dp"
-        android:layout_height="51dp"
-        android:layout_marginBottom="108dp"
+        android:id="@+id/btnLogin"
+        android:layout_width="283dp"
+        android:layout_height="53dp"
         android:background="@drawable/login_button"
-        android:text="Logout"
+        android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.648" />
+
+    <Button
+        android:id="@+id/btn_sign_up"
+        android:layout_width="281dp"
+        android:layout_height="55dp"
+        android:background="@drawable/signup_button"
+        android:onClick="onClick"
+        android:text="Sign Up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.775" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
