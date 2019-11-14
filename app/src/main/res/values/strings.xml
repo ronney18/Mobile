@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Uml Connect</string>
+    <string name="app_name">Uml Mentor</string>
     <string name="username">Username</string>
     <string name="pwd">Password</string>
     <string name="login">LOGIN</string>
