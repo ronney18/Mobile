@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class Register extends AppCompatActivity implements View.OnClickListener{
+public class Register extends AppCompatActivity {
 
     Button btnCreateAccount;
     EditText etFirstName, etLastName, etUserName, etPassword, etRePassword, etCreateAccount, etMajor, etEmail;
@@ -25,16 +25,17 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         etEmail = (EditText) findViewById(R.id.etEmail);
         btnCreateAccount = (Button) findViewById(R.id.btnCreateAccount);
 
-        btnCreateAccount.setOnClickListener(this);
+        btnCreateAccount.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                createAccount();
+            }
+        });
 
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnCreateAccount:
+    public void createAccount() {
 
-                break;
-        }
     }
 }

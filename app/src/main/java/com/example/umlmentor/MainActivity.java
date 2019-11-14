@@ -5,10 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     Button btnLogin;
@@ -25,27 +23,12 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnSignUp = (Button) findViewById(R.id.btn_sign_up);
 
-        //btnLogin.setOnClickListener(this);
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.btnLogin:
-                        break;
-
-                    case R.id.btn_sign_up:
-                        openActivity2();
-                        break;
-                }
-
-            }
-        });
-
     }
 
-    public void openActivity2() {
-        Intent gotoSecond = new Intent(this, Register.class);
+    public void enter(View v) {
+        Intent gotoSecond = new Intent();
+        gotoSecond.setClass(this, Register.class);
         startActivity(gotoSecond);
+        finish();
     }
 }
