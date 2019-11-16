@@ -9,9 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnLogin;
+    private Button btnLogin;
     EditText etUserName, etPassword;
-    Button btnSignUp;
+    private Button signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,14 +21,20 @@ public class MainActivity extends AppCompatActivity {
         etUserName = (EditText) findViewById(R.id.etUserName);
         etPassword = (EditText) findViewById(R.id.etPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnSignUp = (Button) findViewById(R.id.btn_sign_up);
+        signUp = (Button) findViewById(R.id.btnSignUp);
+
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openRegister();
+            }
+        });
 
     }
 
-    public void enter(View v) {
-        Intent gotoSecond = new Intent();
-        gotoSecond.setClass(this, Register.class);
-        startActivity(gotoSecond);
-        finish();
+    private void openRegister() {
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, Register.class);
+        startActivity(intent);
     }
 }
