@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1057685096318",
+    "firebase_url": "https://uml-mentor.firebaseio.com",
+    "project_id": "uml-mentor",
+    "storage_bucket": "uml-mentor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057685096318:android:f421630ba4527fef0e952f",
+        "android_client_info": {
+          "package_name": "com.example.umlmentor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057685096318-de35ickk471r22hafqgv4mgmhlf4i7k3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.umlmentor",
+            "certificate_hash": "45aed04b56c55a229a8499a8f96d2b1617a08afd"
+          }
+        },
+        {
+          "client_id": "1057685096318-f3h59jkmr8m2ina336nntfdmq1q6fb7n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlWfUFWLKtRr6kVOf9zekKLd_ey6rruN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057685096318-f3h59jkmr8m2ina336nntfdmq1q6fb7n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
