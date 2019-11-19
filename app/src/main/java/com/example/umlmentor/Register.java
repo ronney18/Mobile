@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Register extends AppCompatActivity {
 
-    Button createAccountbtn;
+    Button createAccountbtn, cancel;
     EditText firstName, lastName, userName, password, confirmPassword, createAccount, major, email;
 
 
@@ -35,6 +35,8 @@ public class Register extends AppCompatActivity {
         major = (EditText) findViewById(R.id.etMajor);
         email = (EditText) findViewById(R.id.etEmail);
         createAccountbtn = (Button) findViewById(R.id.btnCreateAccount);
+        cancel = (Button) findViewById(R.id.btncancel);
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         createAccountbtn.setOnClickListener(new View.OnClickListener() {
@@ -57,5 +59,9 @@ public class Register extends AppCompatActivity {
                 });
             }
         });
+
     }
+
+
+
 }

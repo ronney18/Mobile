@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btnLogin;
-    EditText etUserName, etPassword;
+    private Button login;
+    EditText userName, password;
     private Button signUp;
 
     @Override
@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etUserName = (EditText) findViewById(R.id.etUserName);
-        etPassword = (EditText) findViewById(R.id.etPassword);
-        btnLogin = (Button) findViewById(R.id.btnLogin);
+        userName = (EditText) findViewById(R.id.etUserName);
+        password = (EditText) findViewById(R.id.etPassword);
+        login = (Button) findViewById(R.id.btnLogin);
         signUp = (Button) findViewById(R.id.btnSignUp);
 
         signUp.setOnClickListener(new View.OnClickListener() {
@@ -29,12 +29,24 @@ public class MainActivity extends AppCompatActivity {
                 openRegister();
             }
         });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openhomepage();
+            }
+        });
 
     }
 
     private void openRegister() {
         Intent intent = new Intent();
         intent.setClass(MainActivity.this, Register.class);
+        startActivity(intent);
+    }
+
+    private void openhomepage() {
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, homepage.class);
         startActivity(intent);
     }
 }
