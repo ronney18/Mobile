@@ -59,7 +59,8 @@ public class Register extends AppCompatActivity {
                             if (task.isSuccessful()){
                                 Toast.makeText(Register.this,"Registered Successfully", Toast.LENGTH_LONG).show();
                                 addUser();
-                                redirectToLogin();
+                                finish();
+                                startActivity(new Intent(Register.this, MainActivity.class));
                             }else {
                                 Toast.makeText(Register.this, task.getException().getMessage(),
                                         Toast.LENGTH_LONG).show();
@@ -80,7 +81,8 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                redirectToLogin();
+                finish();
+                startActivity(new Intent(Register.this, MainActivity.class));
             }
 
         });
@@ -112,12 +114,5 @@ public class Register extends AppCompatActivity {
             Toast.makeText(this, "Please enter all the fields!", Toast.LENGTH_LONG).show();
         }
 
-    }
-
-    private void redirectToLogin()
-    {
-        Intent intent = new Intent();
-        intent.setClass(this, MainActivity.class);
-        startActivity(intent);
     }
 }
