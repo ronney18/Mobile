@@ -46,22 +46,33 @@ public class Register extends AppCompatActivity {
         createAccountbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),
-                        password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                if((!firstName.getText().toString().isEmpty()) && (!lastName.getText().toString().isEmpty()) &&
+                        (!userName.getText().toString().isEmpty()) && (!major.getText().toString().isEmpty()) &&
+                        (!email.getText().toString().isEmpty()) && (!password.getText().toString().isEmpty()) &&
+                        (!confirmPassword.getText().toString().isEmpty()))
+                {
+                    firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),
+                            password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        if (task.isSuccessful()){
-                            Toast.makeText(Register.this,"Registered Successfully", Toast.LENGTH_LONG).show();
-                        }else {
-                            Toast.makeText(Register.this, task.getException().getMessage(),
-                                    Toast.LENGTH_LONG).show();
+                            if (task.isSuccessful()){
+                                Toast.makeText(Register.this,"Registered Successfully", Toast.LENGTH_LONG).show();
+                                addUser();
+                                redirectToLogin();
+                            }else {
+                                Toast.makeText(Register.this, task.getException().getMessage(),
+                                        Toast.LENGTH_LONG).show();
+                            }
 
                         }
+                    });
+                }
+                else
+                {
+                    Toast.makeText(Register.this, "Please enter all the fields!", Toast.LENGTH_LONG).show();
+                }
 
-                    }
-                });
-                addUser();
             }
         });
 
@@ -69,7 +80,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                cancelAccount();
+                redirectToLogin();
             }
 
         });
@@ -103,7 +114,7 @@ public class Register extends AppCompatActivity {
 
     }
 
-    private void cancelAccount()
+    private void redirectToLogin()
     {
         Intent intent = new Intent();
         intent.setClass(this, MainActivity.class);
