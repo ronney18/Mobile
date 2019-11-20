@@ -8,10 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+
 public class MainActivity extends AppCompatActivity {
-    private Button login;
+    Button login;
     EditText userName, password;
-    private Button signUp;
+    Button signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openhomepage();
+                openHomepage();
             }
         });
 
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void openhomepage() {
+    private void openHomepage() {
         Intent intent = new Intent();
         intent.setClass(MainActivity.this, homepage.class);
         startActivity(intent);

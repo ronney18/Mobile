@@ -3,7 +3,9 @@ package com.example.umlmentor;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,19 +15,22 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
 
     Button createAccountbtn;
-    EditText firstName, lastName, userName, password, confirmPassword, createAccount, major, email;
-
-
+    Button cancelBtn;
+    EditText firstName, lastName, userName, password, confirmPassword, major, email;
     FirebaseAuth firebaseAuth;
+    DatabaseReference databaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        databaseUser = FirebaseDatabase.getInstance().getReference("users");
 
         firstName = (EditText) findViewById(R.id.etFirstName);
         lastName = (EditText) findViewById(R.id.etLastName);
@@ -35,6 +40,7 @@ public class Register extends AppCompatActivity {
         major = (EditText) findViewById(R.id.etMajor);
         email = (EditText) findViewById(R.id.etEmail);
         createAccountbtn = (Button) findViewById(R.id.btnCreateAccount);
+        cancelBtn = (Button) findViewById(R.id.cancelBtn);
 
         firebaseAuth = FirebaseAuth.getInstance();
         createAccountbtn.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +61,52 @@ public class Register extends AppCompatActivity {
 
                     }
                 });
+                addUser();
             }
         });
+
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                cancelAccount();
+            }
+
+        });
+
+    }
+    private void addUser() {
+        String userFirstName = firstName.getText().toString().trim();
+        String userLastName = lastName.getText().toString().trim();
+        String user_name = userName.getText().toString().trim();
+        String userMajor = major.getText().toString();
+        String userEmail = email.getText().toString();
+        String userPassword = password.getText().toString().trim();
+        String userConfirmPassword = confirmPassword.getText().toString().trim();
+
+        if((!TextUtils.isEmpty(userFirstName)) && (!TextUtils.isEmpty(userLastName)) &&
+                (!TextUtils.isEmpty(user_name)) && (!TextUtils.isEmpty(userMajor)) &&
+                (!TextUtils.isEmpty(userEmail)) && (!TextUtils.isEmpty(userPassword)) &&
+                (!TextUtils.isEmpty(userConfirmPassword)))
+        {
+            String id = databaseUser.push().getKey();
+            User user = new User(id, userFirstName, userLastName, user_name, userMajor, userEmail,
+                    userPassword, userConfirmPassword);
+            databaseUser.child(id).setValue(user);
+            Toast.makeText(this, "User Added!", Toast.LENGTH_LONG).show();
+        }
+
+        else
+        {
+            Toast.makeText(this, "Please enter all the fields!", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    private void cancelAccount()
+    {
+        Intent intent = new Intent();
+        intent.setClass(this, MainActivity.class);
+        startActivity(intent);
     }
 }
