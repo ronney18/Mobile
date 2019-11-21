@@ -17,10 +17,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class MainActivity extends AppCompatActivity {
-    Button login;
-    EditText userName, password;
-    Button signUp;
-    FirebaseAuth firebaseAuth;
+    private Button login;
+    private EditText userName, password;
+    private Button signUp;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,32 +37,43 @@ public class MainActivity extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 startActivity(new Intent(MainActivity.this, Register.class));
             }
         });
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validate(userName.getText().toString(), password.getText().toString().trim());
+                if(userName.getText().toString().isEmpty() || password.getText().toString().isEmpty())
+                {
+                    Toast.makeText(MainActivity.this,"No Username and/or password!",
+                            Toast.LENGTH_LONG).show();
+                }
+                else {
+                    validate(userName.getText().toString(), password.getText().toString().trim());
+                }
             }
         });
 
     }
 
     private void validate(String userName, String password) {
-        firebaseAuth.signInWithEmailAndPassword(userName, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        firebaseAuth.signInWithEmailAndPassword(userName, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
-                    Toast.makeText(MainActivity.this,"Login Successful!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this,"Login Successful!",
+                            Toast.LENGTH_LONG).show();
                     finish();
                     startActivity(new Intent(MainActivity.this, Homepage.class));
                 }
 
                 else
                 {
-                    Toast.makeText(MainActivity.this,"Invalid Username and/or Password!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this,
+                            "Invalid Username and/or Password!", Toast.LENGTH_LONG).show();
                 }
             }
         });

@@ -20,11 +20,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
 
-    Button createAccountbtn;
-    Button cancelBtn;
-    EditText firstName, lastName, userName, password, confirmPassword, major, email;
-    FirebaseAuth firebaseAuth;
-    DatabaseReference databaseUser;
+    private Button createAccountBtn;
+    private Button cancelBtn;
+    private EditText firstName, lastName, userName, password, confirmPassword, major, email;
+    private FirebaseAuth firebaseAuth;
+    private DatabaseReference databaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,30 +39,38 @@ public class Register extends AppCompatActivity {
         confirmPassword = (EditText) findViewById(R.id.etRePassword);
         major = (EditText) findViewById(R.id.etMajor);
         email = (EditText) findViewById(R.id.etEmail);
-        createAccountbtn = (Button) findViewById(R.id.btnCreateAccount);
+        createAccountBtn = (Button) findViewById(R.id.btnCreateAccount);
         cancelBtn = (Button) findViewById(R.id.cancelBtn);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        createAccountbtn.setOnClickListener(new View.OnClickListener() {
+        createAccountBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if((!firstName.getText().toString().isEmpty()) && (!lastName.getText().toString().isEmpty()) &&
-                        (!userName.getText().toString().isEmpty()) && (!major.getText().toString().isEmpty()) &&
-                        (!email.getText().toString().isEmpty()) && (!password.getText().toString().isEmpty()) &&
+                if((!firstName.getText().toString().isEmpty()) &&
+                        (!lastName.getText().toString().isEmpty()) &&
+                        (!userName.getText().toString().isEmpty()) &&
+                        (!major.getText().toString().isEmpty()) &&
+                        (!email.getText().toString().isEmpty()) &&
+                        (!password.getText().toString().isEmpty()) &&
                         (!confirmPassword.getText().toString().isEmpty()))
                 {
                     firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),
-                            password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            password.getText().toString())
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             if (task.isSuccessful()){
-                                Toast.makeText(Register.this,"Registered Successfully", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Register.this,"Registered Successfully",
+                                        Toast.LENGTH_LONG).show();
                                 addUser();
+                                firebaseAuth.signOut();
                                 finish();
-                                startActivity(new Intent(Register.this, MainActivity.class));
+                                startActivity(new Intent(Register.this,
+                                        MainActivity.class));
                             }else {
-                                Toast.makeText(Register.this, task.getException().getMessage(),
+                                Toast.makeText(Register.this, task.getException()
+                                                .getMessage(),
                                         Toast.LENGTH_LONG).show();
                             }
 
@@ -71,7 +79,8 @@ public class Register extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(Register.this, "Please enter all the fields!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Register.this, "Please enter all the fields!",
+                            Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -111,7 +120,8 @@ public class Register extends AppCompatActivity {
 
         else
         {
-            Toast.makeText(this, "Please enter all the fields!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please enter all the fields!", Toast.LENGTH_LONG)
+                    .show();
         }
 
     }
