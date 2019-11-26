@@ -4,7 +4,7 @@ public class Student {
     private String studentId;
     private String studentFirstName;
     private String studentLastName;
-    private String studentName;
+    private String userName;
     private String studentEmail;
     private String studentMajor;
     private String studentPassword;
@@ -16,13 +16,13 @@ public class Student {
     }
 
     public Student(String studentId, String studentFirstName, String studentLastName,
-                   String studentName, String studentEmail, String studentMajor,
+                   String userName, String studentEmail, String studentMajor,
                    String studentPassword, String studentConfirmPassword)
     {
         this.studentId = studentId;
         this.studentFirstName = studentFirstName;
         this.studentLastName = studentLastName;
-        this.studentName = studentName;
+        this.userName = userName;
         this.studentEmail = studentEmail;
         this.studentMajor = studentMajor;
         this.studentPassword = studentPassword;
@@ -54,11 +54,11 @@ public class Student {
     }
 
     public String getStudentName() {
-        return studentName;
+        return userName;
     }
 
     public void setStudentName(String studentName) {
-        this.studentName = studentName;
+        this.userName = studentName;
     }
 
     public String getStudentEmail() {
