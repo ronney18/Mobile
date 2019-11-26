@@ -16,7 +16,7 @@ public class Student {
     }
 
     public Student(String studentId, String studentFirstName, String studentLastName,
-                   String userName, String studentEmail, String studentMajor,
+                   String userName, String studentMajor, String studentEmail,
                    String studentPassword, String studentConfirmPassword)
     {
         this.studentId = studentId;
