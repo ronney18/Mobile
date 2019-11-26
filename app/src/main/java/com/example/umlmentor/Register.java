@@ -98,22 +98,22 @@ public class Register extends AppCompatActivity {
 
     }
     private void addUser() {
-        String userFirstName = firstName.getText().toString().trim();
-        String userLastName = lastName.getText().toString().trim();
+        String studentFirstName = firstName.getText().toString().trim();
+        String studentLastName = lastName.getText().toString().trim();
         String user_name = userName.getText().toString().trim();
-        String userMajor = major.getText().toString();
-        String userEmail = email.getText().toString();
-        String userPassword = password.getText().toString().trim();
-        String userConfirmPassword = confirmPassword.getText().toString().trim();
+        String studentMajor = major.getText().toString();
+        String studentEmail = email.getText().toString();
+        String studentPassword = password.getText().toString().trim();
+        String studentConfirmPassword = confirmPassword.getText().toString().trim();
 
-        if((!TextUtils.isEmpty(userFirstName)) && (!TextUtils.isEmpty(userLastName)) &&
-                (!TextUtils.isEmpty(user_name)) && (!TextUtils.isEmpty(userMajor)) &&
-                (!TextUtils.isEmpty(userEmail)) && (!TextUtils.isEmpty(userPassword)) &&
-                (!TextUtils.isEmpty(userConfirmPassword)))
+        if((!TextUtils.isEmpty(studentFirstName)) && (!TextUtils.isEmpty(studentLastName)) &&
+                (!TextUtils.isEmpty(user_name)) && (!TextUtils.isEmpty(studentMajor)) &&
+                (!TextUtils.isEmpty(studentEmail)) && (!TextUtils.isEmpty(studentPassword)) &&
+                (!TextUtils.isEmpty(studentConfirmPassword)))
         {
             String id = databaseUser.push().getKey();
-            User user = new User(id, userFirstName, userLastName, user_name, userMajor, userEmail,
-                    userPassword, userConfirmPassword);
+            Student user = new Student(id, studentFirstName, studentLastName, user_name,
+                    studentMajor, studentEmail, studentPassword, studentConfirmPassword);
             databaseUser.child(id).setValue(user);
             Toast.makeText(this, "User Added!", Toast.LENGTH_LONG).show();
         }
