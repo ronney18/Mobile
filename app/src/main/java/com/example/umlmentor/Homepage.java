@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Homepage extends AppCompatActivity {
 
     private Button logoutBtn;
+    private Button createPostBtn;
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -22,6 +23,7 @@ public class Homepage extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         logoutBtn = (Button) findViewById(R.id.btnLogout);
+        createPostBtn = (Button) findViewById(R.id.createPostBtn);
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,6 +32,15 @@ public class Homepage extends AppCompatActivity {
                         Toast.LENGTH_LONG);
                 finish();
                 startActivity(new Intent(Homepage.this, MainActivity.class));
+            }
+        });
+
+        createPostBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Homepage.this, "Create your post!", Toast.LENGTH_LONG);
+                finish();
+                startActivity(new Intent(Homepage.this, Post.class));
             }
         });
     }

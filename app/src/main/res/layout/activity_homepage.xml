@@ -36,4 +36,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.95" />
 
+    <Button
+        android:id="@+id/createPostBtn"
+        android:layout_width="139dp"
+        android:layout_height="45dp"
+        android:background="@drawable/post_button"
+        android:text="Create Post"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.206" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
