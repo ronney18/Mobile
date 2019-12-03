@@ -28,7 +28,7 @@ public class Homepage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 firebaseAuth.signOut();
-                Toast.makeText(Homepage.this, "You have logged out!",
+                Toast.makeText(Homepage.this, "You have logged out successfully!",
                         Toast.LENGTH_LONG);
                 finish();
                 startActivity(new Intent(Homepage.this, MainActivity.class));
