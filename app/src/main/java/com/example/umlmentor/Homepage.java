@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,6 +16,8 @@ public class Homepage extends AppCompatActivity {
     private Button logoutBtn;
     private Button createPostBtn;
     private FirebaseAuth firebaseAuth;
+    private TextView textSubject;
+    private TextView textDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +46,13 @@ public class Homepage extends AppCompatActivity {
                 startActivity(new Intent(Homepage.this, Post.class));
             }
         });
+
+        Intent caller = getIntent();
+        String subject = caller.getStringExtra("mySubject");
+        String description = caller.getStringExtra("myDescription");
+        textSubject = (TextView) findViewById(R.id.subject);
+        textDescription = (TextView) findViewById(R.id.description);
+        textSubject.setText(subject);
+        textDescription.setText(description);
     }
 }

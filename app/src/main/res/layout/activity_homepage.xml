@@ -41,12 +41,38 @@
         android:layout_width="139dp"
         android:layout_height="45dp"
         android:background="@drawable/post_button"
-        android:text="Create Post"
+        android:text="Post"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.941"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
+        app:layout_constraintVertical_bias="0.192" />
+
+    <TextView
+        android:id="@+id/subject"
+        android:layout_width="290dp"
+        android:layout_height="32dp"
+        android:text="Subject"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.293" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="287dp"
+        android:layout_height="132dp"
+        android:text="Description"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_green_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.427" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

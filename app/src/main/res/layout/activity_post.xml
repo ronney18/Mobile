@@ -11,14 +11,6 @@
         android:layout_height="wrap_content"
         tools:context="com.example.umlmentor.Post">
 
-        <ImageButton
-            android:id="@+id/imageBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/add_image" />
-
         <EditText
             android:id="@+id/textTitle"
             android:layout_width="match_parent"
@@ -29,19 +21,20 @@
             android:background="@drawable/edit_text"
             android:hint="@string/post_title"
             android:padding="10dp"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textStyle="bold" />
+
         <EditText
-            android:background="@drawable/edit_text"
-            android:padding="10dp"
-            android:layout_marginTop="20dp"
-            android:hint="@string/post_description"
-            android:textColor="@android:color/white"
             android:id="@+id/textDescription"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="490dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/edit_text"
+            android:hint="@string/post_description"
+            android:padding="10dp"
+            android:textColor="@android:color/black" />
 
         <Button
             android:layout_marginTop="30dp"
