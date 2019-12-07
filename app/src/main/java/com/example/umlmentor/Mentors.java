@@ -7,12 +7,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Mentors extends AppCompatActivity {
     private Button cancelButton;
-
+    private TextView display_data;
+    private Button search;
+    String mentorName = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +23,9 @@ public class Mentors extends AppCompatActivity {
 
         Spinner mySpinner = (Spinner) findViewById(R.id.spinner1);
         cancelButton = (Button) findViewById(R.id.cancelButton);
+        display_data = (TextView) findViewById(R.id.searchMentor);
+        search = (Button) findViewById(R.id.searchM);
+
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,29 +35,44 @@ public class Mentors extends AppCompatActivity {
             }
         });
 
+
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(Mentors.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.majors));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(myAdapter);
 
-//        mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                if (i == 1) {
-//                    startActivity(new Intent(Mentors.this, HomeActivity.class));
-//                } else if (i == 2) {
-//                    startActivity(new Intent(Mentors.this, WorkActivity.class));
-//                }else if (i == 3) {
-//                    startActivity(new Intent(Mentors.this, OtherActivity.class));
-//                }else if (i == 4) {
-//                    startActivity(new Intent(Mentors.this, CustomActivity.class));
-//                }
-//            }
+        mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i == 1) {
+                   mentorName="Ronney!!";
+                } else if (i == 2) {
+                    mentorName="Jonney!!";
+                }else if (i == 3) {
+                    mentorName="Sonney!!";
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                display_data.setTextSize(18);
+                display_data.setText(mentorName);
+            }
+        });
     }
+
+    //search button for Mentors
+//    public void searchMentorResult(View view)
+//    {
+//        display_data.setTextSize(18);
+//        display_data.setText(mentorName);
+//    }
 }
