@@ -49,9 +49,9 @@ public class Mentors extends AppCompatActivity {
                 if (i == 1) {
                    mentorName="Ronney!!";
                 } else if (i == 2) {
-                    mentorName="Jonney!!";
+                    mentorName="Brian!!";
                 }else if (i == 3) {
-                    mentorName="Sonney!!";
+                    mentorName="Danny!!";
                 }
             }
 
