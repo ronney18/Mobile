@@ -15,6 +15,7 @@ public class Homepage extends AppCompatActivity {
 
     private Button logoutBtn;
     private Button createPostBtn;
+    private Button createSearchBtn;
     private FirebaseAuth firebaseAuth;
     private TextView studentName;
     private TextView textSubject;
@@ -28,6 +29,8 @@ public class Homepage extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         logoutBtn = (Button) findViewById(R.id.btnLogout);
         createPostBtn = (Button) findViewById(R.id.createPostBtn);
+        createSearchBtn = (Button) findViewById(R.id.createSearchBtn);
+
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,6 +48,15 @@ public class Homepage extends AppCompatActivity {
                 Toast.makeText(Homepage.this, "Create your post!", Toast.LENGTH_LONG);
                 finish();
                 startActivity(new Intent(Homepage.this, Post.class));
+            }
+        });
+
+        createSearchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Homepage.this, "Look up mentors!", Toast.LENGTH_LONG);
+                finish();
+                startActivity(new Intent(Homepage.this, Mentors.class));
             }
         });
 

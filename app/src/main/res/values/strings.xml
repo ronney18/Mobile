@@ -17,4 +17,12 @@
     <string name="login_failed">"Login failed"</string>
     <string name="post_title">Post Title</string>
     <string name="post_description">Post Description</string>
+
+    <string-array name="majors">
+        <item>Please select a major</item>
+        <item>Computer Science</item>
+        <item>Chemistry</item>
+        <item>Mathematics</item>
+        <item>Sociology</item>
+    </string-array>
 </resources>

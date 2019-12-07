@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Post"></activity>
+        <activity android:name=".Mentors"></activity>
         <activity android:name=".Homepage" />
         <activity android:name=".Register" />
         <activity android:name=".MainActivity">
