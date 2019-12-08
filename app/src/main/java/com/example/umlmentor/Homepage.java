@@ -17,7 +17,6 @@ public class Homepage extends AppCompatActivity {
     private Button createPostBtn;
     private Button createSearchBtn;
     private FirebaseAuth firebaseAuth;
-    private TextView studentName;
     private TextView textSubject;
     private TextView textDescription;
 
@@ -61,13 +60,10 @@ public class Homepage extends AppCompatActivity {
         });
 
         Intent caller = getIntent();
-        String name = caller.getStringExtra("name");
         String subject = caller.getStringExtra("mySubject");
         String description = caller.getStringExtra("myDescription");
-        studentName = (TextView) findViewById(R.id.studentName);
         textSubject = (TextView) findViewById(R.id.subject);
         textDescription = (TextView) findViewById(R.id.description);
-        studentName.setText(name);
         textSubject.setText(subject);
         textDescription.setText(description);
     }

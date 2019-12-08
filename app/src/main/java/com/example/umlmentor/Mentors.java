@@ -68,11 +68,4 @@ public class Mentors extends AppCompatActivity {
             }
         });
     }
-
-    //search button for Mentors
-//    public void searchMentorResult(View view)
-//    {
-//        display_data.setTextSize(18);
-//        display_data.setText(mentorName);
-//    }
 }
