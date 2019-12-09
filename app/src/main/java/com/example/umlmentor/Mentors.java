@@ -47,11 +47,29 @@ public class Mentors extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 1) {
-                   mentorName="Ronney!!";
+                   mentorName="Tom Brady" + "\n" +
+                              "UMass Lowell" + "\n" +
+                              "Tom_Brady@uml.edu" + "\n"+ "\n"+
+                               "Linus Torvalds" + "\n" +
+                               "Linux" + "\n" +
+                               "Linus_Torvalds@uml.edu" + "\n"+ "\n"+
+                                "Bill Gates" + "\n" +
+                                "Microsoft" + "\n" +
+                                "Bill_Gates@uml.edu";
                 } else if (i == 2) {
-                    mentorName="Brian!!";
+                    mentorName="Tom Hardy" + "\n" +
+                            "UMass Lowell" + "\n" +
+                            "Tom_Hrady@uml.edu" + "\n"+ "\n"+
+                            "Tinus Torvalds" + "\n" +
+                            "Tinux" + "\n" +
+                            "Tinus_Torvalds@uml.edu";
                 }else if (i == 3) {
-                    mentorName="Danny!!";
+                    mentorName="Tom Vardy" + "\n" +
+                            "UMass Lowell" + "\n" +
+                            "Tom_Vardy@uml.edu" + "\n"+ "\n"+
+                            "Charles Tomlin" + "\n" +
+                            "IBM" + "\n" +
+                            "CTomlin@ibm.edu";
                 }
             }
 
